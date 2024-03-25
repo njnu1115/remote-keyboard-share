@@ -31,11 +31,21 @@ Find a solution to do "remote typing"
 
 ## Result
 
-- it works as expected
-- some keyevent not well converted in macOS side, e.g. Up Down Left Right
-- simply compile the kbd.c by 
+- setup an ssh tunnel by
 ```
-clang kbd.c 
+ssh -L 38104:localhost:38104 username@workstation_ip
+```
+
+- in macOS side, run 
+```
+pip install pynput
+python3 kbd.py
+```
+- some keyevent not well converted in macOS side, e.g. Up Down Left Right
+- simply compile the kbd.c and run it by 
+```
+clang kbd.c
+sudo ./a.out
 ```
 - sudo is needed to run the binary build from kbd.c in Ubuntu. 
 - No sudo needed in macOS side for capturing keyEvents
